@@ -1,10 +1,6 @@
 <?php
-$mysqli=new mysqli('localhost','root','', 'web');
-if($mysqli->connect_error){
-    die($mysqli->connect_error);
-}
-$sql="select cname from itcast_category";
-$mysqli->query("set names utf8");
+include 'fc.php';//Note for English learning;
+$category= getCategory();//call the getCateory function;
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,15 +43,10 @@ $mysqli->query("set names utf8");
 		</div>
 <div id="slide">
 <?php
-    if($result=$mysqli->query($sql)){
-   // $row=$result->fetch_all();
-    //var_dump($row);
-    while($row=$result->fetch_assoc()){
-        echo '<div class="cate"><div class="cate1 left"><a href="#" >'.$row['cname'].'</a></div></div>';
-    }
-}else{
-    die($mysqli->error);
+foreach ($category[0]as$row){//assignment the $category[*] to $row and *++;
+    echo '<div class="cate"><div class="cate1 left"><a href="#" >'.$row.'</a></div></div>';
 }
+
 ?>
         <div class="clear"></div>
 </div>
