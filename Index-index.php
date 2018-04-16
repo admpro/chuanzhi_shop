@@ -1,7 +1,3 @@
-<?php
-include 'fc.php';//Note for English learning;
-$category= getCategory();//call the getCateory function;
-?>
 <!DOCTYPE html>
 <html>
 <head>
